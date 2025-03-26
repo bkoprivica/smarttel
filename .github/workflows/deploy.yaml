@@ -18,9 +18,25 @@ jobs:
           distribution: 'temurin'
           java-version: 11
 
-      - name: Build All Projects with Maven
+      - name: Build Customer Service
         run: |
-          mvn clean package -DskipTests --projects customer-service,billing-service,notification-service,api-gateway --also-make
+          cd customer-service
+          mvn clean package -DskipTests
+
+      - name: Build Billing Service
+        run: |
+          cd billing-service
+          mvn clean package -DskipTests
+
+      - name: Build Notification Service
+        run: |
+          cd notification-service
+          mvn clean package -DskipTests
+
+      - name: Build API Gateway
+        run: |
+          cd api-gateway
+          mvn clean package -DskipTests
 
       - name: Build Docker Images
         run: |
