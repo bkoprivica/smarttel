@@ -1,7 +1,7 @@
 package com.smarttel.billing.listener;
 
 import com.smarttel.billing.service.BillingService;
-import com.smarttel.customer.model.Customer; // Assuming event payload maps to this structure
+import com.smarttel.billing.dto.CustomerDTO;  // Updated import
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ public class BillingEventListener {
     private BillingService billingService;
 
     @Bean
-    public Consumer<Customer> customerCreated() {
+    public Consumer<CustomerDTO> customerCreated() {
         return customer -> {
             System.out.println("Received customer event for ID: " + customer.getId());
             billingService.createBilling(customer.getId());
