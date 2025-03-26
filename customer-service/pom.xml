@@ -6,42 +6,57 @@
   <artifactId>customer-service</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
-  
+
+  <!-- Inherit settings from Spring Boot -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.7.5</version>
   </parent>
-  
+
+  <!-- Import Spring Cloud BOM so that Spring Cloud dependencies get versions automatically -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>2021.0.4</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
   <dependencies>
-    <!-- Spring Boot Web -->
+    <!-- Spring Boot Web Starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    <!-- Spring Data JPA -->
+    <!-- Spring Data JPA Starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    <!-- H2 in-memory DB -->
+    <!-- H2 Database (in-memory) -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
-    <!-- Spring Cloud Stream with RabbitMQ -->
+    <!-- Spring Cloud Stream with RabbitMQ (version provided by BOM) -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
     </dependency>
   </dependencies>
-  
+
   <build>
     <plugins>
+      <!-- Spring Boot Maven Plugin for packaging -->
       <plugin>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
