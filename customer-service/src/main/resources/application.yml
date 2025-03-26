@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:customerdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    stream:
+      bindings:
+        customerCreated-out-0:
+          destination: customerCreatedTopic
+      rabbit:
+        bindings:
+          customerCreated-out-0:
+            producer:
+              routing-key-expression: '''customer.created'''

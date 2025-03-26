@@ -1,0 +1,14 @@
+server:
+  port: 8083
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        customerCreatedNotification-in-0:
+          destination: customerCreatedTopic
+      rabbit:
+        bindings:
+          customerCreatedNotification-in-0:
+            consumer:
+              routing-key: 'customer.created'

@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: http://customer-service:8081
+          predicates:
+            - Path=/customers/**
+        - id: billing-service
+          uri: http://billing-service:8082
+          predicates:
+            - Path=/billings/**
+        - id: notification-service
+          uri: http://notification-service:8083
+          predicates:
+            - Path=/notifications/**

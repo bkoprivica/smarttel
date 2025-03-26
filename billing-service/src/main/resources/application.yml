@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:billingdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    stream:
+      bindings:
+        customerCreated-in-0:
+          destination: customerCreatedTopic
+      rabbit:
+        bindings:
+          customerCreated-in-0:
+            consumer:
+              routing-key: 'customer.created'
