@@ -74,8 +74,9 @@ jobs:
 
       - name: Install MetalLB
         run: |
-          # Install MetalLB namespace and resources
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.7/manifests/namespace.yaml
+          # Create namespace if not exists
+          kubectl create namespace metallb-system || true
+          # Apply MetalLB manifest which now includes namespace resources
           kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.7/manifests/metallb.yaml
           # Configure MetalLB with the provided IP range (set METALLB_IP_RANGE in repo secrets)
           cat <<EOF | kubectl apply -f -
