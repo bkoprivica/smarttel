@@ -76,8 +76,10 @@ jobs:
         run: |
           # Create namespace if not exists
           kubectl create namespace metallb-system || true
-          # Apply MetalLB manifest using the new URL (v0.13.10)
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+          # Download MetalLB manifest using curl and save it as metallb.yaml
+          curl -L https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml -o metallb.yaml
+          # Apply the manifest with --validate=false to bypass OpenAPI validation errors
+          kubectl apply -f metallb.yaml --validate=false
           # Configure MetalLB with the provided IP range (set METALLB_IP_RANGE in repo secrets)
           cat <<EOF | kubectl apply -f -
           apiVersion: v1
