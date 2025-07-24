@@ -1,0 +1,13 @@
+# Maven build directory
+target/
+
+# Git repository
+.git/
+
+# IDE directories and files
+.idea/
+.vscode/
+*.iml
+.classpath
+.project
+.settings/
