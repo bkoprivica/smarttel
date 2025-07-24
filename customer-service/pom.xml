@@ -51,8 +51,8 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-stream</artifactId>
-      <classifier>test-binder</classifier>
+      <artifactId>spring-cloud-stream-test-binder</artifactId>
+      <version>4.3.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
