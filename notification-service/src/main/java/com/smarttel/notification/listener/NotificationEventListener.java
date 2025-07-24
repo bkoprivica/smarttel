@@ -4,10 +4,10 @@ import com.smarttel.notification.dto.CustomerDTO;
 
 import com.smarttel.notification.model.Notification;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 import java.util.function.Consumer;
 
-@Component
+@Configuration
 public class NotificationEventListener {
 
     // Listen for customer creation events and send notifications
