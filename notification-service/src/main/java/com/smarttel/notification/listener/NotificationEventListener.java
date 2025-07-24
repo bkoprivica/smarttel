@@ -1,6 +1,6 @@
 package com.smarttel.notification.listener;
 
-import com.smarttel.notification.dto.CustomerDTO;
+import com.smarttel.common.dto.CustomerDTO;
 
 import com.smarttel.notification.model.Notification;
 import org.springframework.context.annotation.Bean;

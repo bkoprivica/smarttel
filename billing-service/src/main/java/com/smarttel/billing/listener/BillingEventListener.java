@@ -1,7 +1,7 @@
 package com.smarttel.billing.listener;
 
 import com.smarttel.billing.service.BillingService;
-import com.smarttel.billing.dto.CustomerDTO;  // Updated import
+import com.smarttel.common.dto.CustomerDTO;  // Updated import
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
