@@ -14,7 +14,7 @@ public class BillingService {
     private BillingRepository repository;
 
     public Billing createBilling(Long customerId) {
-        Billing bill = new Billing(customerId, BigDecimal.valueOf(99.99));
+        Billing bill = new Billing(customerId, new BigDecimal("99.99"));
         return repository.save(bill);
     }
 }
