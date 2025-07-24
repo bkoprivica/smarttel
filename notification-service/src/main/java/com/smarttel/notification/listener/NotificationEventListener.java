@@ -1,8 +1,5 @@
 package com.smarttel.notification.listener;
 
-// Replace this:
-// import com.smarttel.customer.model.Customer;
-// With this:
 import com.smarttel.notification.dto.CustomerDTO;
 
 import com.smarttel.notification.model.Notification;
