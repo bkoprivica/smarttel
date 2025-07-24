@@ -1,4 +1,4 @@
-package com.smarttel.billing.dto;
+package com.smarttel.common.dto;
 
 public class CustomerDTO {
     private Long id;

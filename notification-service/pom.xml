@@ -31,6 +31,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- Shared DTOs -->
+    <dependency>
+      <groupId>com.smarttel</groupId>
+      <artifactId>common-dto</artifactId>
+      <version>1.0.0</version>
+    </dependency>
     <!-- Spring Cloud Stream with RabbitMQ (for listening to events) -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
