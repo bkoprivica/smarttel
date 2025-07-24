@@ -21,21 +21,25 @@ jobs:
       - name: Build Customer Service
         run: |
           cd customer-service
+          mvn test
           mvn clean package -DskipTests
 
       - name: Build Billing Service
         run: |
           cd billing-service
+          mvn test
           mvn clean package -DskipTests
 
       - name: Build Notification Service
         run: |
           cd notification-service
+          mvn test
           mvn clean package -DskipTests
 
       - name: Build API Gateway
         run: |
           cd api-gateway
+          mvn test
           mvn clean package -DskipTests
 
       - name: Build Docker Images
