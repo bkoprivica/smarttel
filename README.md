@@ -21,8 +21,9 @@ Prerequisites
 
 Building
 
-Each service is built independently:
+Each service is built independently. Build the shared module first or build from the project root:
 
+mvn -f common-dto/pom.xml install
 mvn -f customer-service/pom.xml package
 mvn -f billing-service/pom.xml package
 mvn -f notification-service/pom.xml package
@@ -31,8 +32,8 @@ mvn -f api-gateway/pom.xml package
 To create Docker images, run the provided Dockerfiles:
 
 docker build -t customer-service:latest ./customer-service
-docker build -t billing-service:latest ./billing-service
-docker build -t notification-service:latest ./notification-service
+docker build -t billing-service:latest -f billing-service/Dockerfile .
+docker build -t notification-service:latest -f notification-service/Dockerfile .
 docker build -t api-gateway:latest ./api-gateway
 Deployment
 
