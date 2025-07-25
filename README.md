@@ -31,6 +31,10 @@ mvn -f api-gateway/pom.xml package
 
 To create Docker images, run the provided Dockerfiles:
 
+**Important:** Build the `billing-service` and `notification-service` images
+from the repository root so the `common-dto` module can be compiled during the
+Maven build.
+
 docker build -t customer-service:latest ./customer-service
 docker build -t billing-service:latest -f billing-service/Dockerfile .
 docker build -t notification-service:latest -f notification-service/Dockerfile .
